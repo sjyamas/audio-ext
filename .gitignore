@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / tooling state
+.vscode/
+.idea/
+.claude/
+
+# Logs
+*.log
+
+# Build output
+dist/
+
+# Packaged extensions (xpi is a zip; don't commit binaries)
+*.zip
+*.xpi

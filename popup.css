@@ -1,0 +1,140 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #1c64c8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1f2328;
+    --fg: #e6edf3;
+    --muted: #8d96a0;
+    --border: #30363d;
+    --accent: #6aa6ff;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px;
+  color: var(--fg);
+  background: var(--bg);
+  width: 280px;
+}
+
+header {
+  padding: 12px 14px 10px;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+  padding: 12px 14px 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.row label {
+  cursor: pointer;
+  flex: 1;
+}
+
+.row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.row.disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.row.disabled label,
+.row.disabled input {
+  cursor: default;
+}
+
+.status {
+  padding: 8px 14px;
+  font-size: 12px;
+  color: var(--muted);
+  background: rgba(127, 127, 127, 0.08);
+  border-bottom: 1px solid var(--border);
+}
+
+.hidden { display: none; }
+
+#rows .row.disabled-by-page {
+  opacity: 0.45;
+  cursor: default;
+}
+#rows .row.disabled-by-page label,
+#rows .row.disabled-by-page input {
+  cursor: default;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+}
+
+.slider-row .ch-label {
+  width: 14px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.slider-row input[type="range"] {
+  flex: 1;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.slider-row .db-value {
+  width: 56px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.slider-row.disabled-by-page {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.slider-row.disabled-by-page input,
+.slider-row.disabled-by-page .ch-label,
+.slider-row.disabled-by-page .db-value {
+  cursor: default;
+}

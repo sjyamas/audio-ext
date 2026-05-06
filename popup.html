@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>Audio Tweaks</title>
+  </head>
+  <body>
+    <header>Audio Tweaks</header>
+    <div id="status" class="status hidden"></div>
+    <ul class="rows" id="rows">
+      <li class="row" data-key="mono">
+        <input type="checkbox" id="mono" />
+        <label for="mono">Mono audio</label>
+      </li>
+    </ul>
+    <div class="section-label">Channel gain</div>
+    <ul class="rows" id="gain-rows">
+      <li class="slider-row" data-key="leftGainDb">
+        <span class="ch-label">L</span>
+        <input type="range" min="-40" max="12" step="0.5" value="0"
+               title="Double-click to reset to 0 dB" />
+        <span class="db-value">0.0 dB</span>
+      </li>
+      <li class="slider-row" data-key="rightGainDb">
+        <span class="ch-label">R</span>
+        <input type="range" min="-40" max="12" step="0.5" value="0"
+               title="Double-click to reset to 0 dB" />
+        <span class="db-value">0.0 dB</span>
+      </li>
+    </ul>
+    <div class="section-label">Coming soon</div>
+    <ul class="rows roadmap">
+      <li class="row disabled">
+        <input type="checkbox" disabled />
+        <label>Swap channels</label>
+      </li>
+      <li class="row disabled">
+        <input type="checkbox" disabled />
+        <label>Volume boost</label>
+      </li>
+      <li class="row disabled">
+        <input type="checkbox" disabled />
+        <label>Equalizer</label>
+      </li>
+    </ul>
+    <script src="popup.js"></script>
+  </body>
+</html>

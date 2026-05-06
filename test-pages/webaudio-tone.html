@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Stereo Tone Test (Web Audio API)</title>
+  <style>body{font-family:sans-serif;padding:2rem;max-width:40rem}</style>
+</head>
+<body>
+  <h1>Stereo Tone Test (AudioContext)</h1>
+  <p>440 Hz sine LEFT, 880 Hz sine RIGHT — emitted directly via <code>AudioContext</code> (no &lt;audio&gt; element).</p>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <script>
+    let ctx, merger, oL, oR;
+    document.getElementById('start').onclick = () => {
+      if (ctx) return;
+      ctx = new AudioContext();
+      merger = ctx.createChannelMerger(2);
+      oL = ctx.createOscillator(); oL.frequency.value = 440;
+      oR = ctx.createOscillator(); oR.frequency.value = 880;
+      const gL = ctx.createGain(); gL.gain.value = 0.3;
+      const gR = ctx.createGain(); gR.gain.value = 0.3;
+      oL.connect(gL).connect(merger, 0, 0);
+      oR.connect(gR).connect(merger, 0, 1);
+      merger.connect(ctx.destination);
+      oL.start(); oR.start();
+    };
+    document.getElementById('stop').onclick = () => {
+      if (!ctx) return;
+      oL.stop(); oR.stop(); ctx.close(); ctx = null;
+    };
+  </script>
+</body>
+</html>
